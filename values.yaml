@@ -18,6 +18,14 @@ app:
     size: 1Gi
     mountPath: /app/uploads
 
+  resources:
+    requests:
+      cpu: "250m"    # 1/4 jezgre
+      memory: "512Mi"  # 512 Megabajta
+    limits:
+      cpu: "1000m"   # 1 jezgra
+      memory: "1Gi"    # 1 Gigabajt
+
 # Vrijednosti za MySQL bazu podataka
 mysql:
   name: mysql
@@ -36,3 +44,11 @@ mysql:
     accessMode: ReadWriteOnce
     size: 2Gi
     mountPath: /var/lib/mysql
+
+  resources:
+    requests:
+      cpu: "250m"
+      memory: "512Mi"
+    limits:
+      cpu: "1000m"
+      memory: "1Gi"
