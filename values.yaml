@@ -1,0 +1,38 @@
+# Vrijednosti za BlogSpace Java aplikaciju
+app:
+  name: blogspace
+  replicaCount: 1
+  image:
+    repository: olivervja/blogspace
+    pullPolicy: IfNotPresent
+    tag: "latest"
+
+  service:
+    type: ClusterIP
+    port: 8080
+
+  persistence:
+    enabled: true
+    storageClass: "longhorn" 
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    mountPath: /app/uploads
+
+# Vrijednosti za MySQL bazu podataka
+mysql:
+  name: mysql
+  image:
+    repository: mysql
+    tag: "latest"
+
+  db:
+    name: blog 
+    user: restouser
+
+  # Perzistencija za MySQL podatke
+  persistence:
+    enabled: true
+    storageClass: "longhorn" # Koristi default Longhorn SC
+    accessMode: ReadWriteOnce
+    size: 2Gi
+    mountPath: /var/lib/mysql

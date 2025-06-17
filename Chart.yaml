@@ -1,0 +1,6 @@
+apiVersion: v2
+name: blogspace-chart
+description: Helm chart za deployanje BlogSpace Java aplikacije i MySQL baze.
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
